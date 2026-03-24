@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetSicilyLines.Login">
+
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+    
+            <StackLayout Grid.Column="1">
+                <Label
+               Text="Connexion"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="White"/>
+
+                <Label
+               Grid.Row="1"
+               Grid.Column="1"
+                Text="Connectez vous pour accèder à votre bibliotheque"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="White"/>
+
+            </StackLayout>
+
+
+        </Grid>
+
+        <Frame Padding="10"
+               BackgroundColor="white"
+               BorderColor="Black"
+               Margin="0,0,0,20">
+
+            <Entry Placeholder="Nom d'utilisateur" 
+                   TextColor="Black"
+                       x:Name="pseudo"/>
+
+
+        </Frame>
+
+        <Frame Padding="10"
+        BackgroundColor="white"
+        BorderColor="Black"
+        Margin="0,0,0,20">
+
+            <Entry Placeholder="Mot De Passe" 
+                   TextColor="Black"
+                x:Name="pass"
+                   IsPassword="True"/>
+
+
+        </Frame>
+
+
+        <HorizontalStackLayout>
+            <CheckBox />
+            <Label Text="Se souvenir de moi"
+       TextColor="White"/>
+        </HorizontalStackLayout>
+
+
+
+
+
+
+
+        <Button Text="Se Connecter"
+      TextColor="white"  
+         BackgroundColor="Red"
+         x:Name ="Button"
+                Clicked="Button_Clicked"
+         
+        />
+ 
+
+        <Label Text="Reinitialisé votre mot de passe"
+               TextColor="White"
+               VerticalOptions="Center"/>
+
+
+
+
+
+    </VerticalStackLayout>
+</ContentView>

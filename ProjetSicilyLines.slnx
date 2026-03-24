@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="ProjetSicilyLines/ProjetSicilyLines.csproj" />
+  <Project Path="APISicilyLines/APISicilyLines.csproj" />
+  <Project Path="ProjetSicilyLines/ProjetSicilyLines.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
