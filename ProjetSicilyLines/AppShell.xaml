@@ -7,7 +7,7 @@
     Title="ProjetSicilyLines">
 
     <ShellContent
-        Title="Home"
+        Title="Bienvenue"
         ContentTemplate="{DataTemplate local:Login}"
         Route="MainPage" />
 

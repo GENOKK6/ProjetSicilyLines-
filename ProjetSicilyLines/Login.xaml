@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProjetSicilyLines.Login">
+             x:Class="ProjetSicilyLines.Login"
+             BackgroundColor="White">
 
 
     <VerticalStackLayout>
@@ -17,15 +18,17 @@
                Text="Connexion"
                FontSize="30"
                FontAttributes="Bold"
-               TextColor="White"/>
+               TextColor="Black"
+                   
+                    VerticalTextAlignment="Center"/>
 
                 <Label
                Grid.Row="1"
                Grid.Column="1"
-                Text="Connectez vous pour accèder à votre bibliotheque"
+                Text="Connectez vous pour accèder a vos reservations "
                 FontSize="14"
                 FontAttributes="Bold"
-                TextColor="White"/>
+                TextColor="Black"/>
 
             </StackLayout>
 
@@ -61,7 +64,7 @@
         <HorizontalStackLayout>
             <CheckBox />
             <Label Text="Se souvenir de moi"
-       TextColor="White"/>
+       TextColor="Black"/>
         </HorizontalStackLayout>
 
 
@@ -72,7 +75,7 @@
 
         <Button Text="Se Connecter"
       TextColor="white"  
-         BackgroundColor="Red"
+         BackgroundColor="Blue"
          x:Name ="Button"
                 Clicked="Button_Clicked"
          
@@ -80,7 +83,7 @@
  
 
         <Label Text="Reinitialisé votre mot de passe"
-               TextColor="White"
+               TextColor="Black"
                VerticalOptions="Center"/>
 
 
@@ -88,4 +91,4 @@
 
 
     </VerticalStackLayout>
-</ContentView>
+</ContentPage>
