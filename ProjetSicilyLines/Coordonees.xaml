@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetSicilyLines.Coordonnees"
+             Title="Mes coordonnées">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+
+            <Image Source="gospel1.png"
+                   HeightRequest="80"
+                   HorizontalOptions="Center" />
+
+          
+            <Label Text="Nom" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryNom" IsReadOnly="True" BackgroundColor="LightGray"/>
+
+            <Label Text="Prénom" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryPrenom" IsReadOnly="True" BackgroundColor="LightGray"/>
+
+
+            <Label Text="Email" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryEmail"/>
+
+            <Label Text="Téléphone" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryTelephone" Keyboard="Telephone"/>
+
+            <Label Text="Adresse" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryAdresse"/>
+
+            <Label Text="Ville" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryVille"/>
+
+            <Label Text="Code Postal" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EntryCodePostal" Keyboard="Numeric"/>
+
+            <Button Text="Enregistrer"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="BtnEnregistrer_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
