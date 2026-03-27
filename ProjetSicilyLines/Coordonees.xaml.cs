@@ -1,27 +1,57 @@
+using Newtonsoft.Json;
+
 namespace ProjetSicilyLines;
 
 public partial class Coordonnees : ContentPage
 {
+    private Client _client;
+
     public Coordonnees()
     {
         InitializeComponent();
-        ChargerDonneesSimulees();
+        LoadDataFromAPI();
     }
 
-    private void ChargerDonneesSimulees()
+    private async void LoadDataFromAPI()
     {
-       
-        EntryNom.Text = "Dupont";
-        EntryPrenom.Text = "Jean";
-        EntryEmail.Text = "jean.dupont@email.com";
-        EntryTelephone.Text = "0612345678";
-        EntryAdresse.Text = "12 rue de la Paix";
-        EntryVille.Text = "Paris";
-        EntryCodePostal.Text = "75000";
+        HttpClient client = new HttpClient();
+        var restURL = "http://localhost:5079/Client?pseudo=Gospel";
+        client.BaseAddress = new Uri(restURL);
+        HttpResponseMessage response = await client.GetAsync(restURL);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            _client = JsonConvert.DeserializeObject<Client>(content);
+
+            EntryNom.Text = _client.Nom;
+            EntryPrenom.Text = _client.Prenom;
+            EntryEmail.Text = _client.Email;
+            EntryTelephone.Text = _client.Telephone;
+            EntryAdresse.Text = _client.Adresse;
+            EntryVille.Text = _client.Ville;
+            EntryCodePostal.Text = _client.CodePostal;
+        }
     }
 
     private async void BtnEnregistrer_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Succès", "Coordonnées enregistrées !", "OK");
+
+
+        _client.Email = EntryEmail.Text;
+        _client.Telephone = EntryTelephone.Text;
+        _client.Adresse = EntryAdresse.Text;
+        _client.Ville = EntryVille.Text;
+        _client.CodePostal = EntryCodePostal.Text;
+
+        HttpClient http = new HttpClient();
+        var json = JsonConvert.SerializeObject(_client);
+        var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        var response = await http.PutAsync("http://localhost:5079/Client", content);
+
+        if (response.IsSuccessStatusCode)
+            await DisplayAlert("Succès", "Coordonnées enregistrées !", "OK");
+        else
+            await DisplayAlert("Erreur", "Impossible de sauvegarder.", "OK");
     }
 }

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetSicilyLines.Reservations"
-             Title="Mes réservations">
+             Title="Mes réservations"
+             Background="White">
 
     <VerticalStackLayout Padding="20" Spacing="15">
 
@@ -10,30 +11,27 @@
                HeightRequest="80"
                HorizontalOptions="Center" />
 
-        <Label Text="Mes réservations"
-               FontSize="22"
-               FontAttributes="Bold"
-               TextColor="White"
-               HorizontalOptions="Center"/>
-
-        <CollectionView x:Name="ListeReservations">
-            <CollectionView.ItemTemplate>
+        <ListView x:Name="lv"
+                  SeparatorColor="White"
+                  RowHeight="80"
+                  BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="0,5"
-                           Padding="15"
-                           BackgroundColor="{Binding Couleur}">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding NomTraversee}"
-                                   FontAttributes="Bold"
-                                   FontSize="16"/>
-                            <Label Text="{Binding DateDepart, StringFormat='Départ : {0:dd/MM/yyyy}'}"
-                                   FontSize="14"/>
-                        </VerticalStackLayout>
-                    </Frame>
+                    <ViewCell>
+                        <Frame Margin="5" Padding="10"
+                               BackgroundColor="{Binding Couleur}">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding NomTraversee}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"/>
+                                <Label Text="{Binding DateDepart}"
+                                       FontSize="14"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </VerticalStackLayout>
-
 </ContentPage>
