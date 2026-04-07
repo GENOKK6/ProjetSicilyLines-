@@ -12,6 +12,7 @@ namespace ProjetSicilyLines
         public string Adresse { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
+        public string MotDePasse { get; set;  }
      
     
 

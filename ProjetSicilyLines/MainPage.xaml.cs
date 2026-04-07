@@ -21,6 +21,6 @@ public partial class MainPage : ContentPage
 
     private async void BtnDeconnexion_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new Login());
     }
 }

@@ -54,4 +54,9 @@ public partial class Coordonnees : ContentPage
         else
             await DisplayAlert("Erreur", "Impossible de sauvegarder.", "OK");
     }
+
+    private async void BtnDeconnexion_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Login());
+    }
 }
